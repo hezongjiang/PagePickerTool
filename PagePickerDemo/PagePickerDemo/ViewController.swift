@@ -17,6 +17,8 @@ class ViewController: PageViewController {
     
     override func setupChildVC() {
         
+        titleLabelWidth = UIScreen.main.bounds.width / 3
+        
         let vc1 = TableViewController()
         vc1.title = "国际"
         addChildViewController(vc1)
@@ -29,28 +31,6 @@ class ViewController: PageViewController {
         vc3.title = "娱乐"
         addChildViewController(vc3)
         
-        let vc4 = TableViewController()
-        vc4.title = "音乐"
-        addChildViewController(vc4)
-        
-        let vc5 = TableViewController()
-        vc5.title = "健康"
-        addChildViewController(vc5)
-        
-        let vc6 = TableViewController()
-        vc6.title = "时事"
-        addChildViewController(vc6)
-        
-        let vc7 = TableViewController()
-        vc7.title = "国内"
-        addChildViewController(vc7)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 

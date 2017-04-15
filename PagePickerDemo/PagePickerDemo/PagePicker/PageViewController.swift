@@ -11,6 +11,8 @@ import UIKit
 /// 标题高度
 private let titleHeight:CGFloat = 50
 
+public var titleLabelWidth: CGFloat = 120
+
 class PageViewController: UIViewController {
     
     /// 标题
@@ -36,6 +38,8 @@ class PageViewController: UIViewController {
         setupTitle()
         
         scrollViewDidEndScrollingAnimation(contentScrollView)
+        
+        titleScrollView.contentOffset = CGPoint()
     }
     
     /// 设置当前控制器仅支持竖屏
@@ -152,15 +156,14 @@ private extension PageViewController {
     /// 设置标题scrollview的标题
     func setupTitle() {
         
-        let w: CGFloat = 120
         
         let childVcCount = childViewControllers.count
         
         for i in 0..<childVcCount {
             
-            let x = CGFloat(i) * w
+            let x = CGFloat(i) * titleLabelWidth
             
-            let label = TitleLabel(frame: CGRect(x: x, y: 0, width: w, height: titleHeight))
+            let label = TitleLabel(frame: CGRect(x: x, y: 0, width: titleLabelWidth, height: titleHeight))
             label.tag = i
             label.text = childViewControllers[i].title
             label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(titleClick)))
@@ -168,7 +171,7 @@ private extension PageViewController {
             
             if i == 0 { label.scale = 1 }
         }
-        titleScrollView.contentSize = CGSize(width: CGFloat(childVcCount) * w, height: 0)
+        titleScrollView.contentSize = CGSize(width: CGFloat(childVcCount) * titleLabelWidth, height: 0)
         contentScrollView.contentSize = CGSize(width: CGFloat(childVcCount) * contentScrollView.frame.width, height: 0)
     }
     
