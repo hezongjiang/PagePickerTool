@@ -1,5 +1,9 @@
 # PagePickerTool
 基于Swift 3.0，仿照网易新闻分页的小项目
+
+![image](https://github.com/Hearsayer/PagePickerTool/blob/master/PagePickerTool.gif)
+
+
 使用方法
 
 1. 将`PagePicker`拖入自己的工程
